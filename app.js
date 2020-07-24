@@ -64,7 +64,7 @@ app.use("/campgrounds/:id/comments",commentRoutes);
 // });
 
 //Tell Express to listen for requests(start server)
-app.listen(5000, function() { 
+app.listen(3000, function() { 
   console.log('The YelpCamp Server has Started!');
 });
 
