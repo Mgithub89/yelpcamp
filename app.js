@@ -15,11 +15,17 @@ var express    = require("express"),
 var commentRoutes = require("./routes/comments"),
 	campgroundRoutes = require("./routes/campgrounds"),
 	authRoutes = require("./routes/auth");
+var url = process.env.DATABASEURL || 'mongodb://localhost:27017/yelp_camp'
 
-mongoose.connect(process.env.DATABASEURL,{
-	useNewUrlParser: true,
+mongoose.connect(url,{
+useNewUrlParser: true,
     useUnifiedTopology: true
 });
+
+// mongoose.connect(process.env.DATABASEURL,{
+// 	useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
 
 // mongoose.connect('mongodb://localhost:27017/yelp_camp', {
 //   useNewUrlParser: true,
@@ -66,15 +72,15 @@ app.use("/",authRoutes);
 app.use("/campgrounds",campgroundRoutes);
 app.use("/campgrounds/:id/comments",commentRoutes);
 
-
+//For heroku
 app.listen(process.env.PORT, process.env.IP || 3000  , function(){
    console.log("Server is listening!!!"); 
 });
 
-//Tell Express to listen for requests(start server)
-// app.listen(3000, function() { 
-//   console.log('The YelpCamp Server has Started!');
-// });
+// For localhost Tell Express to listen for requests(start server)
+app.listen(3000, function() { 
+  console.log('The YelpCamp Server has Started!');
+});
 
 
 
