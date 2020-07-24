@@ -26,12 +26,12 @@ mongoose.connect(process.env.DATABASEURL,{
 //   useUnifiedTopology: true
 // });
 
-// mongoose.connect("mongodb+srv://Mongo0415:Mongodb89@cluster0.jf0aj.mongodb.net/yelpcamp?retryWrites=true&w=majority",{
-// useNewUrlParser: true,
-// useUnifiedTopology: true	
-// }).then(()=>{
-// console.log("connected to DB");
-// }).catch(err=>{console.log("ERROR",err.message)});
+mongoose.connect("mongodb+srv://Mongo0415:Mongodb89@cluster0.jf0aj.mongodb.net/yelpcamp?retryWrites=true&w=majority",{
+useNewUrlParser: true,
+useUnifiedTopology: true	
+}).then(()=>{
+console.log("connected to DB");
+}).catch(err=>{console.log("ERROR",err.message)});
 
 
 
@@ -67,14 +67,14 @@ app.use("/campgrounds",campgroundRoutes);
 app.use("/campgrounds/:id/comments",commentRoutes);
 
 
-app.listen(process.env.PORT, process.env.IP ||3000 , function(){
-   console.log("Server is listening!!!"); 
-});
+// app.listen(process.env.PORT, process.env.IP ||3000 , function(){
+//    console.log("Server is listening!!!"); 
+// });
 
 //Tell Express to listen for requests(start server)
-// app.listen(3000, function() { 
-//   console.log('The YelpCamp Server has Started!');
-// });
+app.listen(3000, function() { 
+  console.log('The YelpCamp Server has Started!');
+});
 
 
 
