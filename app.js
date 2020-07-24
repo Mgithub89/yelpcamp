@@ -67,14 +67,14 @@ app.use("/campgrounds",campgroundRoutes);
 app.use("/campgrounds/:id/comments",commentRoutes);
 
 
-app.listen(process.env.PORT, process.env.IP || 3000 , function(){
-   console.log("Server is listening!!!"); 
-});
+// app.listen(process.env.PORT, process.env.IP  , function(){
+//    console.log("Server is listening!!!"); 
+// });
 
 //Tell Express to listen for requests(start server)
-// app.listen(3000, function() { 
-//   console.log('The YelpCamp Server has Started!');
-// });
+app.listen(3000, function() { 
+  console.log('The YelpCamp Server has Started!');
+});
 
 
 
