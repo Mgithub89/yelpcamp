@@ -3,6 +3,7 @@ var router = express.Router();
 var Campground = require("../models/campground");
 var middleware = require("../middleware");
 
+
 //Index route - show all campgrounds
 router.get("/", function(req, res){
 	// get all campgrounds
@@ -15,7 +16,8 @@ router.get("/", function(req, res){
 	});
 });
 
-//Create route - add new campground to the DB
+
+//Create route - add new campground to the DB "original before adding google map"
 router.post("/",middleware.isLoggedIn,function(req, res){
 //get data from form and add to the campgrouds array
 	var name   = req.body.name;
@@ -28,7 +30,7 @@ router.post("/",middleware.isLoggedIn,function(req, res){
 				 };
 	var newCampground= {name: name, price: price,image: image, description: desc, author: author };
 	
-// creat a new campgrounds and save to the DB
+//creat a new campgrounds and save to the DB
 	Campground.create(newCampground,(err, newlycreated)=>{
 		if(err){
 			console.log(err)
@@ -66,7 +68,9 @@ router.get("/:id/edit",middleware.checkCampgroundOwnership,(req,res)=>{
 	});
 });
 
-//UPDATE CAMPGROUND ROUTE
+
+
+//UPDATE CAMPGROUND ROUTE "original before adding google map"
 router.put("/:id",middleware.checkCampgroundOwnership,(req,res)=>{
 	//find and update the correct campground
 	Campground.findByIdAndUpdate(req.params.id,req.body.campground,(err,updatedCampground)=>{
